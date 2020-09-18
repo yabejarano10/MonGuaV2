@@ -1,0 +1,9 @@
+C:\Users\ybeja\source\repos\DataContext\bin\Debug\netstandard2.0\DataContext.deps.json
+C:\Users\ybeja\source\repos\DataContext\bin\Debug\netstandard2.0\DataContext.dll
+C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.csprojAssemblyReference.cache
+C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.AssemblyInfoInputs.cache
+C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.AssemblyInfo.cs
+C:\Users\ybeja\source\repos\DataContext\bin\Debug\netstandard2.0\DataContext.pdb
+C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.csproj.CoreCompileInputs.cache
+C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.dll
+C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.pdb

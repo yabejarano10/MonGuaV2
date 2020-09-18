@@ -1,0 +1,62 @@
+﻿@page
+@model MonGua.Pages.ConsultoryModel
+@{
+}
+<h4>Current Consultories </h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Consultory Id
+            </th>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                Available
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.consultories)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                <form method="post">
+                    <button type="submit" asp-page-handler="NextPatient" asp-route-id="@item.Code" disabled="@(item.Available? null:"true")" class="btn btn-outline-success">Request Patient</button>
+                </form>
+             </td>
+            <td>
+                <form method="post">
+                    <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Code" class="btn btn-outline-danger">Delete Consultory</button>
+
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<h4>Add Patient</h4>
+<form method="post">
+    <div class="form-group">
+        <label for="consultDoc">Consultory Document</label>
+        <input asp-for="newConsultoryId" type="number" class="form-control" id="consultDoc" placeholder="Insert Document">
+    </div>
+    <div class="form-group">
+        <label for="DoctorsName">Doctor's Name</label>
+        <input asp-for="newDoctorsName" type="text" class="form-control" id="DoctorsName" placeholder="Doctor's Name">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,208 @@
+﻿@page
+@using DataContext.Models;
+@model MonGua.Pages.PatientsModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+<h4>Sick Patients </h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Document
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Triage
+            </th>
+            <th>
+                Symptoms
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.sickPatients)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Document)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Triage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symptoms)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h4>Patients being attended </h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Document
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Triage
+            </th>
+            <th>
+                Symptoms
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.patientsInAttention)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Document)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Triage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symptoms)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h4>Recovered Patients </h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Document
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Triage
+            </th>
+            <th>
+                Symptoms
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.recoveredPatients)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Document)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Triage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symptoms)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h4>Add Patient</h4>
+<form method="post">
+    <div class="form-group">
+        <label for="patientDoc">Documento</label>
+        <input asp-for="newDocument" type="number" class="form-control" id="patientDoc" placeholder="ingrese documento">
+    </div>
+    <div class="form-group">
+        <label for="patientName">Nombre</label>
+        <input asp-for="newName" type="text" class="form-control" id="patientName" placeholder="Nombre">
+    </div>
+    <div class="form-group">
+        <label for="patientAge">Edad</label>
+        <input asp-for="newAge" type="number" class="form-control" id="patientAge" placeholder="Edad">
+    </div>
+    <div class="form-group">
+        <label for="patientGender">Género</label>
+        <input asp-for="newGender" type="text" class="form-control" id="patientGender" placeholder="Género">
+    </div>
+    <div class="form-group">
+        <label for="patientTri">Prioridad</label>
+        <select asp-for="newTriage" class="form-control" id="patientTri">
+            @foreach (Triage tri in Enum.GetValues(typeof(Triage)))
+            {
+                <option>@tri</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="patientSymp">Sintomas</label>
+        <input asp-for="newSymptoms" type="text" class="form-control" id="patientSymp" placeholder="Sintomas">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
