@@ -32,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.sickPatients)
+        @foreach (var item in Model.patients)
         {
             <tr>
                 <td>
@@ -60,118 +60,8 @@
         }
     </tbody>
 </table>
-<h4>Patients being attended </h4>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Document
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Gender
-            </th>
-            <th>
-                Triage
-            </th>
-            <th>
-                Symptoms
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.patientsInAttention)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Document)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Triage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Symptoms)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<h4>Recovered Patients </h4>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Document
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Age
-            </th>
-            <th>
-                Gender
-            </th>
-            <th>
-                Triage
-            </th>
-            <th>
-                Symptoms
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.recoveredPatients)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Document)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Triage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Symptoms)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<hr />
 <h4>Add Patient</h4>
 <form method="post">
     <div class="form-group">

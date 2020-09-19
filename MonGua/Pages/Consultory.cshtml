@@ -1,4 +1,5 @@
 ﻿@page
+@using DataContext.Models;
 @model MonGua.Pages.ConsultoryModel
 @{
 }
@@ -22,32 +23,147 @@
     <tbody>
         @foreach (var item in Model.consultories)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorsName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Available)
-            </td>
-            <td>
-                <form method="post">
-                    <button type="submit" asp-page-handler="NextPatient" asp-route-id="@item.Code" disabled="@(item.Available? null:"true")" class="btn btn-outline-success">Request Patient</button>
-                </form>
-             </td>
-            <td>
-                <form method="post">
-                    <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Code" class="btn btn-outline-danger">Delete Consultory</button>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorsName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Available)
+                </td>
+                <td>
+                    <form method="post">
+                        <button type="submit" asp-page-handler="NextPatient" asp-route-id="@item.Code" disabled="@(item.Available? null:"true")" class="btn btn-outline-success">Request Patient</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post">
+                        <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Code" class="btn btn-outline-danger">Delete Consultory</button>
 
-                </form>
-            </td>
-        </tr>
+                    </form>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
-<h4>Add Patient</h4>
+@foreach (var patient in Model.patientsAttention)
+{
+    <h4>Medical Consult</h4>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Document
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                        Triage
+                    </th>
+                    <th>
+                        Symptoms
+                    </th>
+                    <th>
+                        Consultory Code
+                    </th>
+                    <th>
+                        Doctor's Name
+                    </th>
+                    <th>
+                        Infected
+                    </th>
+                    <th>
+                        DNA Test
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.patientsAttention)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Document)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Triage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Symptoms)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConsultoryCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DoctorsName)
+                        </td>
+                        <td>
+                            @if (item.Infected)
+                            {
+                                <p class="text-danger">Infected</p>
+                            }
+                        </td>
+                        <td>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input type="file" asp-for="Test" class="form-control-file" accept=".txt">
+                                    <input type="submit" asp-page-handler="DnaTest" class="btn btn-outline-success" />
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h4>Diagnostic</h4>
+        <form method="post">
+            <div class="form-check">
+                <input asp-for="CheckPatient" type="checkbox" class="form-check-input" id="CheckCured">
+                <label class="form-check-label" for="CheckCured">Check out patient</label>
+            </div>
+            <div class="form-group">
+                <label for="patientTri">Change Triage</label>
+                <select asp-for="newTriage" class="form-control" id="patientTri" disabled="@(Model.CheckPatient? "true":null)">
+                    @foreach (Triage tri in Enum.GetValues(typeof(Triage)))
+                    {
+                        <option>@tri</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" asp-page-handler="Diagnostics" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
+}
+<hr />
+<h4>Add Consultory</h4>
 <form method="post">
     <div class="form-group">
         <label for="consultDoc">Consultory Document</label>
@@ -60,3 +176,116 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<h4>Patients being attended </h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Document
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Triage
+            </th>
+            <th>
+                Symptoms
+            </th>
+            <th>
+                Consultory Code
+            </th>
+            <th>
+                Doctor's Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.patientsAttention)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Document)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Triage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symptoms)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsultoryCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorsName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<h4>Patients Recovered </h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Document
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Gender
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.patientsRecovered)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Document)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -7,3 +7,11 @@ C:\Users\ybeja\source\repos\DataContext\bin\Debug\netstandard2.0\DataContext.pdb
 C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.csproj.CoreCompileInputs.cache
 C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.dll
 C:\Users\ybeja\source\repos\DataContext\obj\Debug\netstandard2.0\DataContext.pdb
+D:\repos\MonGuaV2\DataContext\bin\Debug\netstandard2.0\DataContext.deps.json
+D:\repos\MonGuaV2\DataContext\bin\Debug\netstandard2.0\DataContext.dll
+D:\repos\MonGuaV2\DataContext\bin\Debug\netstandard2.0\DataContext.pdb
+D:\repos\MonGuaV2\DataContext\obj\Debug\netstandard2.0\DataContext.AssemblyInfoInputs.cache
+D:\repos\MonGuaV2\DataContext\obj\Debug\netstandard2.0\DataContext.AssemblyInfo.cs
+D:\repos\MonGuaV2\DataContext\obj\Debug\netstandard2.0\DataContext.csproj.CoreCompileInputs.cache
+D:\repos\MonGuaV2\DataContext\obj\Debug\netstandard2.0\DataContext.dll
+D:\repos\MonGuaV2\DataContext\obj\Debug\netstandard2.0\DataContext.pdb

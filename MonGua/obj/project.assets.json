@@ -6203,11 +6203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ybeja\\source\\repos\\MonGua\\MonGua.csproj",
+      "projectUniqueName": "D:\\repos\\MonGuaV2\\MonGua\\MonGua.csproj",
       "projectName": "MonGua",
-      "projectPath": "C:\\Users\\ybeja\\source\\repos\\MonGua\\MonGua.csproj",
+      "projectPath": "D:\\repos\\MonGuaV2\\MonGua\\MonGua.csproj",
       "packagesPath": "C:\\Users\\ybeja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ybeja\\source\\repos\\MonGua\\obj\\",
+      "outputPath": "D:\\repos\\MonGuaV2\\MonGua\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ybeja\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6223,8 +6223,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\ybeja\\source\\repos\\DataContext\\DataContext.csproj": {
-              "projectPath": "C:\\Users\\ybeja\\source\\repos\\DataContext\\DataContext.csproj"
+            "D:\\repos\\MonGuaV2\\DataContext\\DataContext.csproj": {
+              "projectPath": "D:\\repos\\MonGuaV2\\DataContext\\DataContext.csproj"
             }
           }
         }

@@ -7,6 +7,7 @@ using DataContext.Models;
 using DataContext.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace MonGua.Pages
 {
@@ -52,7 +53,8 @@ namespace MonGua.Pages
                 Age = newAge,
                 Gender = newGender,
                 Triage = newTriage,
-                Symptoms = newSymptoms
+                Symptoms = newSymptoms,
+                State = State.Enfermo
             };
             patients.Add(newPatient);
             OrderPatients();
@@ -74,34 +76,13 @@ namespace MonGua.Pages
             {
                 patients = patientservice.ReadCSVFile(wanted_path + "\\Patients.csv");
             }
-            foreach(var patient in patients)
-            {
-                if(patient.State == 0)
-                {
-                    sickPatients.Add(patient);
-                }
-            }
+
         }
 
         public Patient GetNextPatient()
         {
             GetPatients();
             return patients[0];
-        }
-        public void NotifyPatientInAttention(Patient patient)
-        {
-            GetPatients();
-            var index = patients.FindIndex(c => c.Id == patient.Id);
-            if (patient.State == State.Enfermo)
-            {
-                sickPatients.Remove(patient);
-            }else if(patient.State == State.Recuperado)
-            {
-                recoveredPatients.Remove(patient);
-            }
-            patientsInAttention.Add(patient);
-
-            patients[index].State = State.EnAtencion;
         }
     }
 }
