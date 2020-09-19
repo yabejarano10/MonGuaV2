@@ -3,7 +3,7 @@
 El sistema utiliza 2 proyectos: MonGua y DataContext por lo cual clonar el repositorio con ambos proyectos en la misma carpeta.
 
 ## Carga Masiva
-El sistema permite la carga masiva de Pacientes y COnsultorios a través de archivos separados por comas (.csv) con los nombres "Patients.csv" y "Consultories.csv".
+El sistema permite la carga masiva de Pacientes y Consultorios a través de archivos separados por comas (.csv) con los nombres "Patients.csv" y "Consultories.csv".
 
 * Al interior de la ruta: "/MonGua/bin/Debug/netcoreapp3.1" se encuentran 2 archivos que ya tienen algunos datos, con la estructura que se muestra a continuación:
 
