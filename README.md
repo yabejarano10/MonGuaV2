@@ -14,6 +14,7 @@ El sistema permite la carga masiva de Pacientes y COnsultorios a través de arch
   ![Consultories](https://i.imgur.com/OJbeaez.png)
   
   Pueden hacer uso de estos archivos o crear unos propios siempre y cuando tengan la misma estructura y se encuentren en la misma ruta: "/MonGua/bin/Debug/netcoreapp3.1" y 
-  se utilicen los mismos nombres de archivo. Para los Patients, todas las variables son arbitrarias excepto el ID que debe ser incremental como se muestra en la figura ya que
+  se utilicen los mismos nombres de archivo.
+  * Para los Patients, todas las variables son arbitrarias excepto el ID que debe ser incremental como se muestra en la figura ya que
   se usa para parte del ordenamiento.
   
