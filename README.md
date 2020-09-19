@@ -17,4 +17,5 @@ El sistema permite la carga masiva de Pacientes y COnsultorios a través de arch
   se utilicen los mismos nombres de archivo.
  * Para los Patients, todas las variables son arbitrarias excepto el ID que debe ser incremental como se muestra en la figura ya que
   se usa para parte del ordenamiento.
+ * Revisar también el formato del archivo DNA.txt para asegurar que no hayan fallos al cargar un archivo diferente para la prueba de ADN.
   
